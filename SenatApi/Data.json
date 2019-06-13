@@ -1,0 +1,162 @@
+﻿{
+  "issues": [
+    {
+      "collegialBody": {
+        "id": "0f880b9a-703c-45df-9a7b-ab43c3e1ca35"
+      },
+      "isInformational": true,
+      "title": {
+        "ru-RU": "Тестовый вопрос 111111111"
+      },
+      "description": {
+        "ru-RU": "Пояснение"
+      },
+	  "status": "Preparing",
+      "estimate": "00:15",
+      "speakers": [],
+      "initiators": [],
+      "invitees": [],
+      "materials": []
+    },
+    {
+      "collegialBody": {
+        "id": "0f880b9a-703c-45df-9a7b-ab43c3e1ca35"
+      },
+      "isInformational": true,
+      "title": {
+        "ru-RU": "Тестовый вопрос 222222222"
+      },
+      "description": {
+        "ru-RU": "Пояснение"
+      },
+	  "status": "Preparing",
+      "estimate": "00:15",
+      "speakers": [],
+      "initiators": [],
+      "invitees": [],
+      "materials": []
+    },
+    {
+      "collegialBody": {
+        "id": "0f880b9a-703c-45df-9a7b-ab43c3e1ca35"
+      },
+      "isInformational": true,
+      "title": {
+        "ru-RU": "Тестовый вопрос 333333333"
+      },
+      "description": {
+        "ru-RU": "Пояснение"
+      },
+	  "status": "Preparing",
+      "estimate": "00:15",
+      "speakers": [],
+      "initiators": [],
+      "invitees": [],
+      "materials": []
+    },
+    {
+      "collegialBody": {
+        "id": "0f880b9a-703c-45df-9a7b-ab43c3e1ca35"
+      },
+      "isInformational": true,
+      "title": {
+        "ru-RU": "Тестовый вопрос 44444444"
+      },
+      "description": {
+        "ru-RU": "Пояснение"
+      },
+	  "status": "Preparing",
+      "estimate": "00:15",
+      "speakers": [],
+      "initiators": [
+        {
+          "id": "30fda679-f784-4bd3-aa24-98d96d57c64c"
+        }
+      ],
+      "invitees": [
+        {
+          "id": "30fda679-f784-4bd3-aa24-98d96d57c64c"
+        },
+        {
+          "id": "E6BA3364-256C-4063-B495-0E87AF65F19F"
+        }
+      ],
+      "materials": []
+    }
+  ],
+
+  "meetings": [
+    {
+      "_discriminator": "CreateMeetingInPresentiaDto",
+      "collegialBody": {
+        "id": "0f880b9a-703c-45df-9a7b-ab43c3e1ca35"
+      },
+      "num": "Заседание 1111",
+	  "status": "Draft",
+      "agendaDueDate": "2019-05-28T11:13:12.861Z",
+      "materialsDueDate": "2019-05-28T11:13:12.861Z",
+      "date": "2019-05-30T11:13:12.861Z",
+      "address": {
+        "ru-RU": "Варшавское шоссе 25а"
+      },
+      "invitedPersons": [
+        {
+          "id": "66364f4b-79d3-4d9e-b6e3-271a9463a6d6"
+        }
+      ],
+      "issues": [
+        {
+          "id": "015df03c-91f0-46f9-b8cc-5c1e4fb3df0d"
+        }
+      ]
+    },
+    {
+      "_discriminator": "CreateMeetingInPresentiaDto",
+      "collegialBody": {
+        "id": "0f880b9a-703c-45df-9a7b-ab43c3e1ca35"
+      },
+      "num": "Заседание 2222",
+	  "status": "Draft",
+      "agendaDueDate": "2019-05-28T11:13:12.861Z",
+      "materialsDueDate": "2019-05-28T11:13:12.861Z",
+      "date": "2019-05-30T11:13:12.861Z",
+      "address": {
+        "ru-RU": "Варшавское шоссе 25а"
+      },
+      "invitedPersons": [
+        {
+          "id": "66364f4b-79d3-4d9e-b6e3-271a9463a6d6"
+        }
+      ],
+      "issues": [
+        {
+          "id": "015df03c-91f0-46f9-b8cc-5c1e4fb3df0d"
+        }
+      ]
+    },
+    {
+      "_discriminator": "CreateMeetingInPresentiaDto",
+      "collegialBody": {
+        "id": "0f880b9a-703c-45df-9a7b-ab43c3e1ca35"
+      },
+      "num": "Заседание 3333",
+	  "status": "Draft",
+      "agendaDueDate": "2019-05-28T11:13:12.861Z",
+      "materialsDueDate": "2019-05-28T11:13:12.861Z",
+      "date": "2019-05-30T11:13:12.861Z",
+      "address": {
+        "ru-RU": "Варшавское шоссе 25а"
+      },
+      "invitedPersons": [
+        {
+          "id": "66364f4b-79d3-4d9e-b6e3-271a9463a6d6"
+        }
+      ],
+      "issues": [
+        {
+          "id": "015df03c-91f0-46f9-b8cc-5c1e4fb3df0d"
+        }
+      ]
+    }
+  ]
+}

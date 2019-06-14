@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9A85366A-5D28-4E95-AADF-819EB4126A6D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>NewProject</RootNamespace>
-    <AssemblyName>NewProject</AssemblyName>
+    <RootNamespace>SenatApi</RootNamespace>
+    <AssemblyName>SenatApi</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -83,15 +83,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBRepository\ConfigMapper.cs" />
+    <Compile Include="Mapper\ConfigMapper.cs" />
     <Compile Include="DBRepository\QueryAboutPerson.cs" />
-    <Compile Include="DBRepository\IRepository.cs" />
+    <Compile Include="DBRepository\IIssueMeetingRepository.cs" />
     <Compile Include="DBRepository\ShowQueryIssue.cs" />
     <Compile Include="DBRepository\ShowQueryMeeting.cs" />
+    <Compile Include="DBRepository\SqlIssueMeetingRepository.cs" />
     <Compile Include="DTO\ConvertDictianory.cs" />
-    <Compile Include="DBRepository\ModelMeeting.cs" />
-    <Compile Include="DBRepository\ModelIssue.cs" />
-    <Compile Include="DBRepository\ModelMember.cs" />
+    <Compile Include="Mapper\ModelMeeting.cs" />
+    <Compile Include="Mapper\ModelIssue.cs" />
+    <Compile Include="Mapper\ModelMember.cs" />
     <Compile Include="DBRepository\SenatContext.cs" />
     <Compile Include="Migrations\201906101013375_AddNew1.cs" />
     <Compile Include="Migrations\201906101013375_AddNew1.Designer.cs">
@@ -127,6 +128,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SenatApi\SenatApiClient.cs" />
     <Compile Include="DTO\StatusDto.cs" />
+    <Compile Include="DBRepository\ShowUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

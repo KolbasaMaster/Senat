@@ -1,14 +1,17 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+using SenatApi;
+using System.Collections.Generic;
 
 namespace SnatApi.UnitTests
 {
-    [TestClass]
+    [TestFixture]
     public class UnitTest1
     {
-        [TestMethod]
+        [Test]
         public void TestMethod1()
         {
+           Assert.AreEqual(2, 1 + 1, "Error");           
         }
     }
 }

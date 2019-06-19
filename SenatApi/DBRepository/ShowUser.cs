@@ -17,9 +17,9 @@ namespace SenatApi
         }
         public static void ShowUserMeetings(IEnumerable<ShowQueryMeeting> showQueryMeeting)
         {
-            Console.WriteLine("Status\t\t\t date\t\t\t \t\tNumber\t\t Count of Issues");
+            Console.WriteLine("date\t\t\t \t\tNumber\t\t Count of Issues");
             foreach (var c in showQueryMeeting)
-                Console.WriteLine("{0}\t\t {1}\t\t {2}\t\t\t {3}", c.Status, c.Date, c.Num, c.Issues);
+                Console.WriteLine("{0}\t\t {1}\t\t {2}\t\t\t ", c.Date, c.Num, c.Issues);
         }
     }
 }

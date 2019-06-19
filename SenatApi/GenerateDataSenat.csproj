@@ -98,6 +98,10 @@
     <Compile Include="Migrations\201906101013375_AddNew1.Designer.cs">
       <DependentUpon>201906101013375_AddNew1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906151253535_ChangeModels.cs" />
+    <Compile Include="Migrations\201906151253535_ChangeModels.Designer.cs">
+      <DependentUpon>201906151253535_ChangeModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="SenatApi\Identific.cs" />
     <Compile Include="DTO\IssueDto.cs" />
     <Compile Include="DTO\MeetingDto.cs" />
@@ -185,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906101013375_AddNew1.resx">
       <DependentUpon>201906101013375_AddNew1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906151253535_ChangeModels.resx">
+      <DependentUpon>201906151253535_ChangeModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

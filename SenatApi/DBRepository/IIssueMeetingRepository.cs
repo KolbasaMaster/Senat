@@ -12,6 +12,6 @@ namespace SenatApi
         void Add(IssueMeeting dto);
         // to simplify use class instead of interface
         IEnumerable<ShowQueryIssue> GetIssueQueryResults();
-        IEnumerable<ShowQueryMeeting> GetMeetingQueryResults();
+        IEnumerable<ShowQueryMeeting> GetMeetingQueryResults(Guid? enterMGuid, DateTime? enterDate);
     }
 }

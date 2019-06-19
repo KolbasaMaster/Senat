@@ -15,7 +15,9 @@
       "estimate": "00:15",
       "speakers": [],
       "initiators": [],
-      "invitees": [],
+      "invitees": [{
+	      "id": "30fda679-f784-4bd3-aa24-98d96d57c64c"
+      }],
       "materials": []
     },
     {
@@ -33,7 +35,10 @@
       "estimate": "00:15",
       "speakers": [],
       "initiators": [],
-      "invitees": [],
+      "invitees": [
+	      {
+		      "id": "30fda679-f784-4bd3-aa24-98d96d57c64c"
+	      }],
       "materials": []
     },
     {
@@ -51,7 +56,9 @@
       "estimate": "00:15",
       "speakers": [],
       "initiators": [],
-      "invitees": [],
+      "invitees": [{
+	      "id": "30fda679-f784-4bd3-aa24-98d96d57c64c"
+      }],
       "materials": []
     },
     {

@@ -9,9 +9,9 @@ namespace SenatApi
 {
     public class SenatContext : DbContext
     {
-        public DbSet<ModelIssue> Issues { get; set; }
-        public DbSet<ModelMeeting> Meetings { get; set; }
-        public DbSet<ModelMember> Members { get; set; }
+        public virtual DbSet<ModelIssue> Issues { get; set; }
+        public virtual DbSet<ModelMeeting> Meetings { get; set; }
+        public virtual DbSet<ModelMember> Members { get; set; }
         public SenatContext()
 
             : base("DefaultConnection")

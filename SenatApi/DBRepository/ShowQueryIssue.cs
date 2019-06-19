@@ -11,7 +11,7 @@ namespace SenatApi
         public IssueStatus Status { get; set; }
         public MeetingStatus? MeetingStatus { get; set; }
         public string Title { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public string Num { get; set; }
     }
 }

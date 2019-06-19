@@ -12,7 +12,7 @@ namespace SenatApi
         public string Num { get; set; } 
         public string AgendaDueDate { get; set; }
         public string MaterialsDueDate { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public string Address { get; set; }
         public MeetingStatus Status { get; set; }
         public ICollection<ModelIssue> Issues { get; set; }

@@ -8,8 +8,8 @@ namespace SenatApi
 {
     public class ShowQueryMeeting
     {
-        public MeetingStatus Status { get; set; }
-        public string Date { get; set; }
+        public Guid MeetingId { get; set; }
+        public DateTime? Date { get; set; }
         public string Num { get; set; }
         public int Issues { get; set; }
     }

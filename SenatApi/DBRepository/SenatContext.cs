@@ -16,9 +16,10 @@ namespace SenatApi
 
             : base("DefaultConnection")
         {
-           
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<SenatContext>());
+            
         }
-
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ModelMember>().HasKey(x => new { x.MemberId, x.IssueId });
@@ -33,5 +34,6 @@ namespace SenatApi
                 .HasForeignKey(s => s.MeetingId);
         }
 
+        public DbSet<ModelIssueDto> ModelIssueDtoes { get; set; }
     }
 }

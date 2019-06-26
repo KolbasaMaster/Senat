@@ -83,6 +83,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\CollegialBodyDetailDto.cs" />
+    <Compile Include="DTO\CollegialBodyDto.cs" />
+    <Compile Include="DTO\CollegialBodyRefDto.cs" />
+    <Compile Include="DTO\CompanyRefDto.cs" />
+    <Compile Include="DTO\CreateMeetingDto.cs" />
+    <Compile Include="DTO\EmployeeDto.cs" />
+    <Compile Include="DTO\HoldingDto.cs" />
+    <Compile Include="DTO\HoldingRefDto.cs" />
+    <Compile Include="DTO\IssueMultilingualDto.cs" />
+    <Compile Include="DTO\IssueRefDto.cs" />
+    <Compile Include="DTO\IssueVersionInIssuesListItemDto.cs" />
+    <Compile Include="DTO\LabelDto.cs" />
+    <Compile Include="DTO\MaterialDto.cs" />
+    <Compile Include="DTO\MaterialVersionDto.cs" />
+    <Compile Include="DTO\MeetingLocalizedDto.cs" />
+    <Compile Include="DTO\MultilingualTextDto.cs" />
+    <Compile Include="DTO\PageOfIssueVersionIssuesListItemDto.cs" />
+    <Compile Include="DTO\PageOfMeetingLocalizedDto.cs" />
+    <Compile Include="DTO\VotingStatisticDto.cs" />
     <Compile Include="Mapper\ConfigMapper.cs" />
     <Compile Include="DBRepository\QueryAboutPerson.cs" />
     <Compile Include="DBRepository\IIssueMeetingRepository.cs" />
@@ -90,6 +109,7 @@
     <Compile Include="DBRepository\ShowQueryMeeting.cs" />
     <Compile Include="DBRepository\SqlIssueMeetingRepository.cs" />
     <Compile Include="DTO\ConvertDictianory.cs" />
+    <Compile Include="Mapper\ModelIssueDto.cs" />
     <Compile Include="Mapper\ModelMeeting.cs" />
     <Compile Include="Mapper\ModelIssue.cs" />
     <Compile Include="Mapper\ModelMember.cs" />
@@ -101,6 +121,10 @@
     <Compile Include="Migrations\201906151253535_ChangeModels.cs" />
     <Compile Include="Migrations\201906151253535_ChangeModels.Designer.cs">
       <DependentUpon>201906151253535_ChangeModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906221123130_mm.cs" />
+    <Compile Include="Migrations\201906221123130_mm.Designer.cs">
+      <DependentUpon>201906221123130_mm.cs</DependentUpon>
     </Compile>
     <Compile Include="SenatApi\Identific.cs" />
     <Compile Include="DTO\IssueDto.cs" />
@@ -192,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906151253535_ChangeModels.resx">
       <DependentUpon>201906151253535_ChangeModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906221123130_mm.resx">
+      <DependentUpon>201906221123130_mm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

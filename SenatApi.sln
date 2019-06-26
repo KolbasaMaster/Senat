@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenatApi.UnitTests", "SnatA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateDataSenat", "SenatApi\GenerateDataSenat.csproj", "{9A85366A-5D28-4E95-AADF-819EB4126A6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenatWebTest", "SenatWebTest\SenatWebTest.csproj", "{AA820EA3-E852-4454-B0F2-6B395435E047}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenatWebAp", "SenatWebAp\SenatWebAp.csproj", "{ACC3CB33-2DE9-4CF5-A357-8B7E1D5C1FCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{9A85366A-5D28-4E95-AADF-819EB4126A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A85366A-5D28-4E95-AADF-819EB4126A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A85366A-5D28-4E95-AADF-819EB4126A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA820EA3-E852-4454-B0F2-6B395435E047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA820EA3-E852-4454-B0F2-6B395435E047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA820EA3-E852-4454-B0F2-6B395435E047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA820EA3-E852-4454-B0F2-6B395435E047}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACC3CB33-2DE9-4CF5-A357-8B7E1D5C1FCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACC3CB33-2DE9-4CF5-A357-8B7E1D5C1FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACC3CB33-2DE9-4CF5-A357-8B7E1D5C1FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACC3CB33-2DE9-4CF5-A357-8B7E1D5C1FCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

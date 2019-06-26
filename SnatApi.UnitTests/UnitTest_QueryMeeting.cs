@@ -4,6 +4,7 @@ using AutoFixture;
 using Moq;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting;
 using NUnit.Framework;
 using SenatApi;
 
@@ -24,7 +25,6 @@ namespace SenatApi.UnitTests
             Random random = new Random();
             _fixture = new Fixture();
             _meetings = _fixture.Build<ModelMeeting>()
-                .With(x => x.Date, DateTime.Now)
                 .With(x => x.Discriminator, "discriminator")
                 .With(x => x.CollegialBody, Guid.NewGuid())
                 .With(x => x.AgendaDueDate, "11.11.11")
@@ -44,6 +44,7 @@ namespace SenatApi.UnitTests
                 .With(x => x.Status, IssueStatus.Modified)
                 .Without(x => x.Meeting)
                 .CreateMany<ModelIssue>(10).ToList();
+            /*
             _issues.Add(_fixture.Build<ModelIssue>()
                 .With(x => x.CollegialBody, Guid.NewGuid())
                 .With(x => x.IsInformational, true)
@@ -53,8 +54,8 @@ namespace SenatApi.UnitTests
                 .With(x => x.Title, "TestQuestion")
                 .With(x => x.Status, IssueStatus.Modified)
                 .Without(x => x.Meeting)
-                .Create());
-            _members = _fixture.CreateMany<Guid>().ToList();
+                .Create());*/
+            _members = _fixture.CreateMany<Guid>(20).ToList();
 
             foreach (var issue in _issues)
             {
@@ -92,18 +93,7 @@ namespace SenatApi.UnitTests
 
         }
 
-        [Test]
-        public void IsArgumentDateLessThanDate_ReturnTrue()
-        {
-            var member = _members.First();
-            var query = _fixture.Create<SenatApi.SqlIssueMeetingRepository>();
-            var minDate = DateTime.MinValue;
-            var res = query.GetMeetingQueryResults(member, minDate);
-            foreach (var item in res)
-            {
-                Assert.That(item.Date, Is.GreaterThan(minDate));
-            }
-        }
+       
         [Test]
         public void IsDateNull_ReturnsMeetingOrderByIssueCountGreaterThanOne()
         {
@@ -122,8 +112,11 @@ namespace SenatApi.UnitTests
         {
             var query = _fixture.Create<SenatApi.SqlIssueMeetingRepository>();
             var res = query.GetMeetingQueryResults(null, DateTime.MinValue);
-            foreach(var item in res)
+            Assert.IsTrue(res.All(x => x.Issues == 0));
+            foreach (var item in res)
+            {
                 Assert.That(item.Issues, Is.Null);
+            }
         }
 
         [Test]
@@ -134,14 +127,7 @@ namespace SenatApi.UnitTests
             foreach (var item in res)
                 Assert.That(item.Issues, Is.Null);
         }
-
-        [Test]
-        public void NotNullQuery_ReturnTrue()
-        {
-            var query = _fixture.Create<SqlIssueMeetingRepository>();
-            var res = query.GetMeetingQueryResults(Guid.NewGuid(), DateTime.Today);
-            Assert.IsNotNull(res);
-        }
+        
 
         [Test]
         public void GetMeetingQueryResults_ReturnsAllMemberMeetings()
@@ -155,7 +141,7 @@ namespace SenatApi.UnitTests
                 .Select(x => x.MeetingId.Value).Distinct().OrderBy(x => x).ToList();
 
             var query = _fixture.Create<SqlIssueMeetingRepository>();
-            var res = query.GetMeetingQueryResults(memberId, DateTime.Today).Select(x => x.MeetingId).OrderBy(x => x).ToList();
+            var res = query.GetMeetingQueryResults(memberId, DateTime.MinValue).Select(x => x.MeetingId).OrderBy(x => x).ToList();
 
             Assert.IsTrue(Enumerable.SequenceEqual(meetingIds, res));
         }
@@ -165,10 +151,20 @@ namespace SenatApi.UnitTests
         {
             var query = _fixture.Create<SqlIssueMeetingRepository>();
             var res = query.GetMeetingQueryResults(Guid.NewGuid(), DateTime.Today);
+            Assert.That(res, Is.Empty);
             foreach (var item in res)
             {
                 Assert.That(item.Num, Does.Contain("заседание 1111").IgnoreCase);
             }
+        }
+
+        [Test]
+        public void OrderedByDate_ReturnTrue()
+        {
+            var member = _members.First();
+            var query = _fixture.Create<SenatApi.SqlIssueMeetingRepository>();
+            var res = query.GetMeetingQueryResults(member, DateTime.MinValue);
+            Assert.That(res, Is.Ordered.By("Date"));
         }
     }
 }

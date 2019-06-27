@@ -170,7 +170,7 @@
       <DependentUpon>SenatDB.mdf</DependentUpon>
     </Content>
     <Content Include="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Data.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

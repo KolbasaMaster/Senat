@@ -13,6 +13,6 @@ namespace SenatApi
         public List<IssueRefDto> Issues { get; set; }
         public DateTime AgendaDueDate { get; set; }
         public DateTime MaterialsDueDate { get; set; }
-        private string _discriminator { get; set; }
+        public string _discriminator { get; set; }
     }
 }

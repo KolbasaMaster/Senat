@@ -53,10 +53,10 @@ namespace SenatApi
         public Guid CreateIssue(IssueDto issue)
         {
             var request = new RestRequest("api/v2.0/issues", Method.POST, DataFormat.Json);
-            request.AddJsonBody(issue);
+            request.AddJsonBody(issue);           
             var issueVersionId = SendRequest<Identific>(request).Id;
             //// we need issueId not issueVersionId to create meeting
-            var getIssueIdRequest = new RestRequest($"api/v1.0/issueversions/{issueVersionId}", Method.GET);
+            var getIssueIdRequest = new RestRequest($"api/v1.0/issueversions/{issueVersionId}", Method.GET);            
             return SendRequest<IssueVersionShort>(getIssueIdRequest).Issue.Id;
         }
 

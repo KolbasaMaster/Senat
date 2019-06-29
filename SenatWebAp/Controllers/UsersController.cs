@@ -14,24 +14,26 @@ using SenatWebAp.Models;
 
 namespace SenatWebAp.Controller
 {
-    [RoutePrefix("api/accounts")]
-    public class AccountsController : BaseApiController
+    [Authorize]
+    [RoutePrefix("api/users")]
+    public class UsersController : BaseUserApiController
     {
         
         [HttpGet]
         public IHttpActionResult GetUsers()
         {
             
-            return Ok(this.senatUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
+            return Ok(this.senatUserManager.Users.ToList().Select(u => this.ModelFactory.Create(u)));
         }
 
+        [HttpGet]
         [Route("user/{id:guid}", Name = "GetUserById")]
         public async Task<IHttpActionResult> GetUser(string Id)
         {
             var user = await this.senatUserManager.FindByIdAsync(Id);
             if (user != null)
             {
-                return Ok(this.TheModelFactory.Create(user));
+                return Ok(this.ModelFactory.Create(user));
             }
 
             return NotFound();
@@ -58,11 +60,11 @@ namespace SenatWebAp.Controller
             IdentityResult addUserResult = await this.senatUserManager.CreateAsync(user, createUserModel.Password);
             if (!addUserResult.Succeeded)
             {
-                return GetErroResult(addUserResult);
+                return GetErrorResult(addUserResult);
             }
 
             Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
-            return Created(locationHeader, TheModelFactory.Create(user));
+            return Created(locationHeader, ModelFactory.Create(user));
         }
 
         [Route("ChangePassword")]
@@ -73,8 +75,25 @@ namespace SenatWebAp.Controller
             IdentityResult result = await this.senatUserManager.ChangePasswordAsync(User.Identity.GetUserId(),
                 model.OldPassword, model.NewPassword);
             if (!result.Succeeded)
-                return GetErroResult(result);
+                return GetErrorResult(result);
             return Ok();
+        }
+
+        [Route("user/{id:guid}")]
+        public async Task<IHttpActionResult> DeleteUser(string id)
+        {
+            var appUser = await this.senatUserManager.FindByIdAsync(id);
+            if (appUser != null)
+            {
+                IdentityResult result = await this.senatUserManager.DeleteAsync(appUser);
+
+                if (!result.Succeeded)
+                {
+                    return GetErrorResult(result);
+                }
+                return Ok();
+            }
+            return NotFound();
         }
 
     }

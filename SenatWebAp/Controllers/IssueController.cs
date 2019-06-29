@@ -16,26 +16,22 @@ namespace SenatWebAp
     {
         RestSenatApiClient client = new RestSenatApiClient("https://dev.senat.sbt-osop-224.sigma.sbrf.ru");
 
+        [HttpGet]
         public List<PageOfIssueVersionIssuesListItemDto> GetIssues()
         {
             return client.GetListOfIssues();
         }
 
-
+        [HttpGet]
         public IssueMultilingualDto GetIssue(Guid id)
         {
             return client.GetIssue(id);
         }
-
-        // POST api/<controller>
-        public Guid Post([FromBody]IssueDto issue)
+        // разобраться с отправкой
+        [HttpPost]
+        public Guid Post([FromBody] IssueDto issue)
         {
-           return client.CreateIssue(issue);            
+            return client.CreateIssue(issue);
         }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }       
     }
 }

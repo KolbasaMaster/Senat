@@ -15,15 +15,19 @@ namespace SenatWebAp
     {
         RestSenatApiClient client = new RestSenatApiClient("https://dev.senat.sbt-osop-224.sigma.sbrf.ru");
 
+        [HttpGet]
         public List<PageOfMeetingLocalizedDto> GetMeetings()
         {
            return client.GetListOfMeetings();
         }
 
+        [HttpGet]
         public MeetingDto GetMeeting(Guid id)
         {
             return client.GetMeeting(id);
         }
+
+        [HttpPost]
         public Guid PostMeeting(CreateMeetingDto meeting)
         {
             return client.CreateMeeting(meeting);

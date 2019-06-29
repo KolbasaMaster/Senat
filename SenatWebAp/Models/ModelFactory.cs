@@ -35,7 +35,7 @@ namespace SenatWebAp.Models
                 Claims = _senatUserManager.GetClaimsAsync(senatUser.Id).Result
             };
         }
-
+        // вынести отдельно
         public class UserReturnModel
         {
             public string Url { get; set; }

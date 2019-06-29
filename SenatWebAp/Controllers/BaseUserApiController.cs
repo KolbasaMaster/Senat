@@ -9,22 +9,22 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using SenatWebAp.Infrastructure;
 using SenatWebAp.Models;
-
+//паттерн стратегия, композиция
 namespace SenatWebAp.Controller
 {
-    public class BaseApiController : ApiController
+    public class BaseUserApiController : ApiController
     {
         private ModelFactory _modelFactory;
-        private SenatUserManager _senatUserManager = null;
+        private SenatUserManager _senatUserManager = null;//singleton 
 
         protected SenatUserManager senatUserManager
         {
             get { return _senatUserManager ?? Request.GetOwinContext().GetUserManager<SenatUserManager>(); }
         }
-        public BaseApiController()
+        public BaseUserApiController()
         { }
 
-        protected ModelFactory TheModelFactory
+        protected ModelFactory ModelFactory
         {
             get
             {
@@ -34,7 +34,7 @@ namespace SenatWebAp.Controller
             }
         }
 
-        protected IHttpActionResult GetErroResult(IdentityResult result)
+        protected IHttpActionResult GetErrorResult(IdentityResult result)
         {
             if (result == null)
                 return InternalServerError();

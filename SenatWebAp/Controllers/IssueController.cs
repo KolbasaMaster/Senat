@@ -12,26 +12,36 @@ using SenatApi;
 
 namespace SenatWebAp
 {
+    
     public class IssueController : ApiController
     {
-        RestSenatApiClient client = new RestSenatApiClient("https://dev.senat.sbt-osop-224.sigma.sbrf.ru");
+        //todo: move to autofac
+        private RestSenatApiClient_ _client;
 
-        [HttpGet]
-        public List<PageOfIssueVersionIssuesListItemDto> GetIssues()
+        public IssueController(RestSenatApiClient_ client)
         {
-            return client.GetListOfIssues();
+            _client = client;
         }
 
+        [Authorize(Roles = "Initiator, User")]
+        [HttpGet]
+        public IHttpActionResult GetIssues()
+        {
+            return Ok(_client.GetListOfIssues());
+        }
+
+        [Authorize(Roles = "Initiator, User")]
         [HttpGet]
         public IssueMultilingualDto GetIssue(Guid id)
         {
-            return client.GetIssue(id);
+            return _client.GetIssue(id);
         }
-        // разобраться с отправкой
+
+        [Authorize(Roles = "Initiator")]
         [HttpPost]
-        public Guid Post([FromBody] IssueDto issue)
+        public IHttpActionResult PostIssue([FromBody] IssueDto issue)
         {
-            return client.CreateIssue(issue);
+            return Ok(_client.CreateIssue(issue));
         }
     }
 }

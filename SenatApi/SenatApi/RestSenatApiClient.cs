@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace SenatApi
 {
 
-    public class RestSenatApiClient
+    public class RestSenatApiClient_
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
         const string authCookie = "senat-auth";
@@ -18,7 +18,7 @@ namespace SenatApi
         LoginDto login = new LoginDto();
 
 
-        public RestSenatApiClient(string baseUrl)
+        public RestSenatApiClient_(string baseUrl)
         {
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             _baseUrl = baseUrl;

@@ -13,24 +13,32 @@ namespace SenatWebAp
 {
     public class MeetingController : ApiController
     {
-        RestSenatApiClient client = new RestSenatApiClient("https://dev.senat.sbt-osop-224.sigma.sbrf.ru");
+        private RestSenatApiClient_ _client;
 
+        public MeetingController(RestSenatApiClient_ client)
+        {
+            _client = client;
+        }
+
+        [Authorize(Roles = "Initiator, User")]
         [HttpGet]
         public List<PageOfMeetingLocalizedDto> GetMeetings()
         {
-           return client.GetListOfMeetings();
+           return _client.GetListOfMeetings();
         }
 
+        [Authorize(Roles = "Initiator, User")]
         [HttpGet]
         public MeetingDto GetMeeting(Guid id)
         {
-            return client.GetMeeting(id);
+            return _client.GetMeeting(id);
         }
 
+        [Authorize(Roles = "Initiator")]
         [HttpPost]
         public Guid PostMeeting(CreateMeetingDto meeting)
         {
-            return client.CreateMeeting(meeting);
+            return _client.CreateMeeting(meeting);
         }
     }
 }

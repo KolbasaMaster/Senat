@@ -14,23 +14,29 @@ namespace SenatWebAp.Controller
 {
     public class BaseUserApiController : ApiController
     {
-        private ModelFactory _modelFactory;
+        private Modelfactory _modelfactory;
         private SenatUserManager _senatUserManager = null;//singleton 
+        private SenatRoleManager _senatRoleManager = null;
 
         protected SenatUserManager senatUserManager
         {
             get { return _senatUserManager ?? Request.GetOwinContext().GetUserManager<SenatUserManager>(); }
         }
+
+        protected SenatRoleManager SenatRoleManager
+        {
+            get { return _senatRoleManager ?? Request.GetOwinContext().GetUserManager<SenatRoleManager>(); }
+        }
         public BaseUserApiController()
         { }
 
-        protected ModelFactory ModelFactory
+        protected Modelfactory Modelfactory
         {
             get
             {
-                if(_modelFactory == null)
-                    _modelFactory = new ModelFactory(this.Request, this.senatUserManager);
-                return _modelFactory;
+                if(_modelfactory == null)
+                    _modelfactory = new Modelfactory(this.Request, this.senatUserManager);
+                return _modelfactory;
             }
         }
 

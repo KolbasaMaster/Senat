@@ -11,7 +11,6 @@ namespace SenatWebAp.Models
     public class CreateUserBindingModel
     {
         [Required]
-        [EmailAddress]
         [Display(Name ="Email")]
         public string Email { get; set; }
         [Required]
@@ -23,11 +22,13 @@ namespace SenatWebAp.Models
         [Required]
         [Display(Name = "LastName")]
         public string LastName { get; set; }
+
         [Display(Name = "RoleName")]
         public string RoleName { get; set; }
         [Required]
         [StringLength(150,ErrorMessage =  "The{0} must be at least {2} characters long",MinimumLength = 6)]
         [DataType(DataType.Password)]
+        [Display(Name = "Password")]
         public string Password { get; set; }
         [Required]
         [DataType(DataType.Password)]

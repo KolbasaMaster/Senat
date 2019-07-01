@@ -36,7 +36,7 @@ namespace SenatApi
 
             //  Console.ReadKey();
 
-            var client = new RestSenatApiClient("https://dev.senat.sbt-osop-224.sigma.sbrf.ru");
+            var client = new RestSenatApiClient_("https://dev.senat.sbt-osop-224.sigma.sbrf.ru");
 
             var issueIds = issueAndMeeting.issues
                 .Select(issue => client.CreateIssue(issue));

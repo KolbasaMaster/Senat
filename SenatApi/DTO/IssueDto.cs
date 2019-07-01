@@ -5,20 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using SenatApi.DTO;
 
 namespace SenatApi
 {
     public class IssueDto
-    {        
-        public IssueStatus Status { get; set; }        
-        public Identific CollegialBody { get; set; }
-        public bool IsInformational { get; set; }
-        public Dictionary<string, string> Title { get; set; }
-        public Dictionary<string, string> Description { get; set; }
+    {
+        public CollegialBodyRefDto CollegialBody { get; set; }
+        public Dictionary<string,string> Title { get; set; }
+        public Dictionary< string,string> Description { get; set; }
+        public List<LabelDto> Labels { get; set; }
         public string Estimate { get; set; }
-        public List<object> Speakers { get; set; }
-        public List<Identific> Initiators { get; set; }
-        public List<Identific> Invitees { get; set; }
-        public List<object> Materials { get; set; }
+        public List<EmployeeRefDto> Initiators { get; set; }
+        public List<EmployeeRefDto> Speakers { get; set; }
+        public List<EmployeeRefDto> Invitees { get; set; }
+        public List<MaterialWithCategoryDto> Materials { get; set; }
+        public bool isConfidential { get; set; }
     }
 }

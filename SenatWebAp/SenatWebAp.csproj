@@ -43,6 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.9.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.9.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Owin, Version=4.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Owin.4.2.0\lib\net45\Autofac.Integration.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.2.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.4.2.1\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -161,11 +170,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\BaseUserApiController.cs" />
     <Compile Include="Controllers\IssueController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\LoginToStandController.cs" />
     <Compile Include="Controllers\MeetingController.cs" />
     <Compile Include="Infrastructure\SenatDbContext.cs" />
     <Compile Include="Infrastructure\SenatRoleManager.cs" />
@@ -176,15 +185,21 @@
     <Compile Include="Migrations\201906270800421_InitialCreate.Designer.cs">
       <DependentUpon>201906270800421_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906291051228_ChangeModel.cs" />
+    <Compile Include="Migrations\201906291051228_ChangeModel.Designer.cs">
+      <DependentUpon>201906291051228_ChangeModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ChangePasswordBindingModel.cs" />
+    <Compile Include="Models\CreateRoleBindingModel.cs" />
     <Compile Include="Models\CreateUserBindingModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\RoleReturnModel.cs" />
+    <Compile Include="Models\UserReturnModel_.cs" />
+    <Compile Include="Models\Modelfactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\CustomJwtFormat.cs" />
-    <Compile Include="Providers\CustomOAuthProvider.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Validation\ValidationActionFilter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">
@@ -214,6 +229,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201906270800421_InitialCreate.resx">
       <DependentUpon>201906270800421_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906291051228_ChangeModel.resx">
+      <DependentUpon>201906291051228_ChangeModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

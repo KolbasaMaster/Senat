@@ -11,8 +11,7 @@ namespace SenatWebAp.Infrastructure
         public SenatDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-            Configuration.ProxyCreationEnabled = false;
-            Configuration.LazyLoadingEnabled = false;
+           Configuration.LazyLoadingEnabled = false;
         }
 
         public static SenatDbContext Create()

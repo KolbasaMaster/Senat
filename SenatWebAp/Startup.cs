@@ -20,6 +20,8 @@ using Autofac;
 using Autofac.Integration.WebApi;
 using Owin;
 using SenatApi;
+using Hangfire;
+using GlobalConfiguration = Hangfire.GlobalConfiguration;
 
 
 namespace SenatWebAp
@@ -43,11 +45,8 @@ namespace SenatWebAp
                 .WithParameter("baseUrl", "https://dev.senat.sbt-osop-224.sigma.sbrf.ru").SingleInstance();
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
-
             app.UseAutofacMiddleware(container);
-
-
-
+            HangdireJob(app);
             app.UseWebApi(config);
             
         }
@@ -81,6 +80,17 @@ namespace SenatWebAp
                 .Add(new StringEnumConverter());
             config.Filters.Add(new ValidationActionFilter());
             
+
+        }
+
+        private void HangdireJob(IAppBuilder app)
+        {
+            GlobalConfiguration.Configuration.UseSqlServerStorage("DefaultConnection");
+            app.UseHangfireDashboard();
+            RecurringJob.AddOrUpdate(
+                () => Console.WriteLine("How'r u?!"),
+                Cron.Minutely);
+            app.UseHangfireServer();
         }
     }
 }

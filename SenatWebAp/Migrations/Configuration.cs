@@ -18,8 +18,7 @@ namespace SenatWebAp.Migrations
 
         protected override void Seed(SenatWebAp.Infrastructure.SenatDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-            var manager = new UserManager<SenatUser>(new UserStore<SenatUser>(new SenatDbContext()));
+           var manager = new UserManager<SenatUser>(new UserStore<SenatUser>(new SenatDbContext()));
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new SenatDbContext()));
             var user = new SenatUser()
             {
@@ -27,7 +26,7 @@ namespace SenatWebAp.Migrations
                 Email = "reutovvova@gmail.com",
                 EmailConfirmed = true,
                 FirstName = "Vladimir",
-                LastName = "Reutov",
+                LastName = "Reutov"
             
             };
             manager.Create(user, "123456");
